@@ -3,8 +3,7 @@ import CountryList from "./CountryList";
 import styles from "./styles";
 import AppCssModule from './App.module.css'
 import Footer from "./Footer";
-
-const [theme, setTheme] = useState<String>("basic");
+import { BasicButton, ItalicButton, UnderLineButton, WhiteUnderlineButton } from "./Buttons";
 
 export type CountryType = {
   no: number;
@@ -22,7 +21,9 @@ const App = () =>  {
 
     ]);
 
-  const addResult = (x:number, y:number) =>{
+  const [theme, setTheme] = useState<string>("basic");
+
+  const addResult = (x:number, y:number) => {
     return(
       <div className="card card-body bg-light mb-3">
         {x} + {y} = {x + y}
@@ -36,8 +37,11 @@ const App = () =>  {
       <hr style={styles.dashStyle}/>
       {addResult (4, 3)}
       <CountryList countries={list} />
+      <BasicButton>기본</BasicButton>
+      <ItalicButton>이탤릭</ItalicButton>
+      <UnderLineButton>언더라인</UnderLineButton>
+      <WhiteUnderlineButton>화이트 언더라인</WhiteUnderlineButton>
       <Footer theme = {theme} />
-
     </div>
   );
 };
